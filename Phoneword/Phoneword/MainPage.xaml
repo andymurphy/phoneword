@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Phoneword.MainPage"        
+             <!-- This below sets up a namespace that is used by markup extensions. Allows runtime  -->
+             xmlns:me="clr-namespace:Phoneword;assembly=Phoneword">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout.BackgroundColor>
+                <!-- This changes the background colour of the StackPanel depending on the platform. Can be used for other properties, like padding, as well. -->
+                <OnPlatform x:TypeArguments="Color">
+                    <On Platform="iOS" Value="Silver"/>
+                    <On Platform="Android" Value="Green" />
+                </OnPlatform>
+            </StackLayout.BackgroundColor>
+            <Label Text="Enter a Phoneword:" FontSize="Large" />
+            <Entry x:Name="phoneNumberText" Text="1-855-XAMARIN" />
+            <!-- Below we use a markup extension from the me namespace specified at the top. MyBorderWidth is specified in C# code -->
+            <Button x:Name="translateButton" 
+                    Text="Translate"                    
+                    BorderWidth="{x:StaticExtension Member=me:MainPage.MyBorderWidth}"
+                    Clicked="OnTranslate"/>
+            <Button x:Name="callButton"
+                    Text="Call"
+                    IsEnabled="false"
+                    Clicked="OnCall"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
