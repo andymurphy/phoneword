@@ -4,9 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Phoneword.MainPage"        
-             <!-- This below sets up a namespace that is used by markup extensions. Allows runtime  -->
-             xmlns:me="clr-namespace:Phoneword;assembly=Phoneword">
+             x:Class="Phoneword.MainPage"             
+             xmlns:me="clr-namespace:Phoneword;assembly=Phoneword"><!-- This below sets up a namespace that is used by markup extensions. Allows runtime  -->
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.BackgroundColor>

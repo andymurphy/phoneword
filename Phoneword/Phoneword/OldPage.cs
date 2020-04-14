@@ -47,8 +47,7 @@ namespace Phoneword
             });            
             // Add a click handler for the translate and call buttons
             translateButton.Clicked += OnTranslate;
-            callButton.Clicked += OnCall;
-
+            callButton.Clicked += OnCall;         
             // Assign the stackpanel to the content property of the MainPage (this)
             this.Content = panel;
         }
