@@ -5,7 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Phoneword.MainPage"             
-             xmlns:me="clr-namespace:Phoneword;assembly=Phoneword"><!-- This below sets up a namespace that is used by markup extensions. Allows runtime  -->
+             xmlns:me="clr-namespace:Phoneword;assembly=Phoneword"
+             xmlns:local ="clr-namespace:Phoneword"><!-- These set up namespaces for static extensions and local resources. They can then be used in the XAML  -->
+    <ContentPage.Padding><!-- This should only happen for iOS deveices -->
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS">0,40,0,0</On>
+        </OnPlatform>
+    </ContentPage.Padding>
     <ContentPage.Content>
         <StackLayout>
             <StackLayout.BackgroundColor>
@@ -21,9 +27,16 @@
             <Button x:Name="translateButton" 
                     Text="Translate"                    
                     BorderWidth="{x:StaticExtension Member=me:MainPage.MyBorderWidth}"
+                    TextColor="{x:Static local:SharedResources.ButtonTextColour}"
+                    BackgroundColor="{x:Static local:SharedResources.ButtonBkColour}"
                     Clicked="OnTranslate"/>
+            <!-- The color and border properties in the buttons are defined by static resources.
+            One is in the MainPage class and is accessible and can be altered at runtime
+            The other two are in SharedResources.cs and can only be got -->
             <Button x:Name="callButton"
                     Text="Call"
+                    TextColor="{x:Static local:SharedResources.ButtonTextColour}"
+                    BackgroundColor="{x:Static local:SharedResources.ButtonBkColour}"
                     IsEnabled="false"
                     Clicked="OnCall"/>
         </StackLayout>
