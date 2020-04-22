@@ -14,7 +14,7 @@ namespace Phoneword
     public partial class MainPage : ContentPage
     {
         // This value is accessed in XAML using x:staticextension
-        public const double MyBorderWidth = 3.5;
+        public const double MyBorderWidth = 2;
 
         string translatedNumber;
 
